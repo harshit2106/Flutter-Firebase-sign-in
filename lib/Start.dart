@@ -12,12 +12,13 @@ class _StartState extends State<Start> {
 
   navigateToLogin()async{
 
-    Navigator.push(context, MaterialPageRoute(builder: (context)=> Login()));
+    Navigator.pushReplacementNamed(context,"Login");
   }
 
    navigateToRegister()async{
 
-    Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUp()));
+    Navigator.pushReplacementNamed(context,"SignUp");
+    
   }
   @override
   Widget build(BuildContext context) {

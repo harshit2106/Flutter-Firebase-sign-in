@@ -19,15 +19,14 @@ class _LoginState extends State<Login> {
   checkAuthentification() async
   {
    
-   _auth.onAuthStateChanged.listen((user) { 
+   _auth.authStateChanges().listen((user) { 
 
     if(user!= null)
     {
       print(user);
 
-      Navigator.push(context, MaterialPageRoute(
-        
-        builder: (context)=>HomePage()));
+       Navigator.pushReplacementNamed( context , "/"); 
+      
     }
 
    });
@@ -49,7 +48,7 @@ class _LoginState extends State<Login> {
       _formKey.currentState.save();
 
       try{
-        FirebaseUser user = await _auth.signInWithEmailAndPassword(email: _email, password: _password);
+        UserCredential user = await _auth.signInWithEmailAndPassword(email: _email, password: _password);
       }
 
       catch(e)
